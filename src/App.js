@@ -8,7 +8,7 @@ function App() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`https://work2vec.objobj.xyz/api/similar/${word}`);
+      const response = await fetch(`https://word2vec.objobj.xyz/api/similar/${word}`);
       const data = await response.json();
       setResult(data);
     } catch (e) {
