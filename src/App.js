@@ -7,7 +7,7 @@ function App() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch(`http://flask.railway.internal/api/similar/${word}`);
+    const response = await fetch(`flask.railway.internal:5000/api/similar/${word}`);
     const data = await response.json();
     setResult(data);
   };
