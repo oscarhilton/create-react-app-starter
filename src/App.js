@@ -7,9 +7,13 @@ function App() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch(`flask.railway.internal:5000/api/similar/${word}`);
-    const data = await response.json();
-    setResult(data);
+    try {
+      const response = await fetch(`https://work2vec.objobj.xyz/api/similar/${word}`);
+      const data = await response.json();
+      setResult(data);
+    } catch (e) {
+      console.log(e)
+    }
   };
 
   return (
@@ -28,7 +32,7 @@ function App() {
           <div className="Result">
             <h3>Similar words for {word}:</h3>
             <pre>{result && result.similar.map(item => (
-              <div>{item}</div>
+              <div key={item}>{item}</div>
             ))}</pre>
           </div>
         )}
