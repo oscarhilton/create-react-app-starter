@@ -7,7 +7,7 @@ function App() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch(`https://word2vec.objobj.xyz/api/similar/${word}`);
+    const response = await fetch(`flask/api/similar/${word}`);
     const data = await response.json();
     setResult(data);
   };
